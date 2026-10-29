@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Homework: Pastel Edition</title>
+    <style>
+        /* ПАСТЕЛЬНАЯ ЦВЕТОВАЯ ПАЛИТРА */
+        :root {
+            --bg-color: #f6f5f1; /* Сливочный фон */
+            --container-bg: #ffffff;
+            --primary-text: #555d61; /* Мягкий графитовый */
+            --heading-color: #7b9497; /* Пыльный шалфейный */
+            --section-bg: #a3b8b9; /* Пастельный тил/шалфей */
+            --accent-color: #d4a3a3; /* Пыльная роза */
+            --input-border: #c7d1ce;
+            --input-text: #8a6e6e;
+            --box-bg: #f4f7f6;
+            --reading-bg: #fbf9f6;
+            --reading-border: #e3c9b8; /* Мягкий персиковый */
+            --btn-bg: #98b3a2; /* Пастельный зеленый */
+            --btn-hover: #86a491;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(160, 150, 140, 0.12);
+        }
+        h1, h2, h3 {
+            color: var(--heading-color);
+            font-weight: 600;
+            text-align: center;
+        }
+        .section-title {
+            background-color: var(--section-bg);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        .task {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        .task:last-child {
+            border-bottom: none;
+        }
+        .task-label {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            display: block;
+            font-size: 1.05em;
+        }
+        .box {
+            border: 1px solid var(--input-border);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: var(--box-bg);
+            font-weight: 600;
+            color: var(--heading-color);
+            text-align: center;
+        }
+        .sentence {
+            margin-bottom: 15px;
+        }
+        input[type="text"] {
+            border: none;
+            border-bottom: 2px solid var(--input-border);
+            background: transparent;
+            padding: 4px 8px;
+            font-size: 1em;
+            color: var(--input-text);
+            font-weight: 600;
+            outline: none;
+            width: 140px;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus {
+            border-bottom: 2px solid var(--accent-color);
+        }
+        .short-input {
+            width: 50px !important;
+        }
+        .radio-group label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+        .radio-group label:hover {
+            background-color: var(--box-bg);
+        }
+        .radio-group input {
+            margin-right: 10px;
+            accent-color: var(--heading-color);
+        }
+        .reading-text {
+            background-color: var(--reading-bg);
+            padding: 25px;
+            border-left: 6px solid var(--reading-border);
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 25px;
+        }
+        .reading-text h3 {
+            margin-top: 0;
+            text-align: center;
+            color: var(--primary-text);
+        }
+        .reading-text p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 0.95em;
+        }
+        .paragraph-num {
+            font-weight: bold;
+            background: var(--reading-border);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 20px;
+            margin-right: 12px;
+            font-size: 0.9em;
+        }
+        select {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--input-border);
+            font-size: 1em;
+            color: var(--primary-text);
+            background-color: #fff;
+            outline: none;
+            accent-color: var(--heading-color);
+        }
+        .submit-btn {
+            background-color: var(--btn-bg);
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            font-size: 1.2em;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 30px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        .submit-btn:hover {
+            background-color: var(--btn-hover);
+        }
+        .submit-btn:active {
+            transform: scale(0.99);
+        }
+        
+        /* Стилизация чекбоксов */
+        input[type="checkbox"] {
+            accent-color: var(--heading-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>English Homework</h1>
+
+    <!-- FORMSPREE INTEGRATION -->
+    <form action="https://formspree.io/f/xljjlgjb" method="POST">
+        
+        <!-- ==========================================
+             SECTION 1: VOCABULARY (STORY WORDS)
+        =========================================== -->
+        <div class="section-title">VOCABULARY: Story Words</div>
+
+        <!-- TASK 1A -->
+        <div class="task">
+            <span class="task-label">1A. Complete the conversation with the words in the box.</span>
+            <div class="box">
+                characters &nbsp;|&nbsp; ending &nbsp;|&nbsp; hero &nbsp;|&nbsp; performances &nbsp;|&nbsp; plots &nbsp;|&nbsp; show
+            </div>
+            
+            <div class="sentence">
+                A: I saw a good TV <input type="text" name="1A_1" placeholder="1..."> last night.<br>
+                B: What was it about?<br>
+                A: It was a drama. The <input type="text" name="1A_2" placeholder="2..."> was a police boss who was trying to find out who'd stolen some money.<br>
+                B: What were the <input type="text" name="1A_3" placeholder="3..."> like? I hate bad acting.<br>
+                A: They were good. The <input type="text" name="1A_4" placeholder="4..."> were interesting, too. We learnt something about the personal lives of all the officers in the team. I only saw the first episode, but it has a good story. It was different from the <input type="text" name="1A_5" placeholder="5..."> of other crime dramas, which usually tell the same type of story. The first episode had a surprising <input type="text" name="1A_6" placeholder="6...">, too. I really want to know what happens next!
+            </div>
+        </div>
+
+        <!-- TASK 1B -->
+        <div class="task">
+            <span class="task-label">1B. Choose the correct word to complete the sentences.</span>
+            
+            <div class="sentence radio-group">
+                1. My grandad used to read me old 
+                <label><input type="radio" name="1B_1" value="fairytales"> fairytales</label>
+                <label><input type="radio" name="1B_1" value="plots"> plots</label>
+                <label><input type="radio" name="1B_1" value="performances"> performances</label>
+                when I was a child.
+            </div>
+
+            <div class="sentence radio-group">
+                2. A good 
+                <label><input type="radio" name="1B_2" value="ending"> ending</label>
+                <label><input type="radio" name="1B_2" value="storyteller"> storyteller</label>
+                <label><input type="radio" name="1B_2" value="TV show"> TV show</label>
+                keeps listeners interested from beginning to end.
+            </div>
+
+            <div class="sentence radio-group">
+                3. The 
+                <label><input type="radio" name="1B_3" value="fairytale"> fairytale</label>
+                <label><input type="radio" name="1B_3" value="performance"> performance</label>
+                <label><input type="radio" name="1B_3" value="plot"> plot</label>
+                in the film had some different events to the one in the book.
+            </div>
+
+            <div class="sentence radio-group">
+                4. There aren't many films where the 
+                <label><input type="radio" name="1B_4" value="ending"> ending</label>
+                <label><input type="radio" name="1B_4" value="hero"> hero</label>
+                <label><input type="radio" name="1B_4" value="plot"> plot</label>
+                dies, but this one did.
+            </div>
+
+            <div class="sentence radio-group">
+                5. The film was really good until the 
+                <label><input type="radio" name="1B_5" value="ending"> ending</label>
+                <label><input type="radio" name="1B_5" value="hero"> hero</label>
+                <label><input type="radio" name="1B_5" value="storyteller"> storyteller</label>
+                , when it became really silly.
+            </div>
+        </div>
+
+
+        <!-- ==========================================
+             SECTION 2: TYPES OF FILM
+        =========================================== -->
+        <div class="section-title">TYPES OF FILM</div>
+
+        <div class="task">
+            <span class="task-label">2. Complete the descriptions with the correct types of film. The first letter is given.</span>
+            
+            <div class="sentence">
+                1. There was no silly love story and I laughed all the way through. <strong>c</strong><input type="text" name="2_1" placeholder="...">
+            </div>
+            <div class="sentence">
+                2. It was full of interesting facts about the environment and how we need to look after it. <strong>d</strong><input type="text" name="2_2" placeholder="...">
+            </div>
+            <div class="sentence">
+                3. It was the same old story. Two people meet, fall in love and do silly things. <strong>r</strong><input type="text" name="2_3" class="short-input" placeholder="..."> <strong>c</strong><input type="text" name="2_3b" placeholder="...">
+            </div>
+            <div class="sentence">
+                4. The actor looked just like the real-life woman that she played. <strong>b</strong><input type="text" name="2_4" placeholder="...">
+            </div>
+            <div class="sentence">
+                5. It was full of guns, fights and fast cars. Boring! <strong>a</strong><input type="text" name="2_5" class="short-input" placeholder="..."> <strong>f</strong><input type="text" name="2_5b" placeholder="...">
+            </div>
+            <div class="sentence">
+                6. It wasn't true, but it was a serious story about the relationship between a mother and her son. <strong>d</strong><input type="text" name="2_6" placeholder="...">
+            </div>
+            <div class="sentence">
+                7. A man had disappeared and no one knew where he was. <strong>m</strong><input type="text" name="2_7" placeholder="...">
+            </div>
+            <div class="sentence">
+                8. A couple travelled around the world searching for some secret gold. <strong>a</strong><input type="text" name="2_8" class="short-input" placeholder="..."> <strong>f</strong><input type="text" name="2_8b" placeholder="...">
+            </div>
+        </div>
+
+
+        <!-- ==========================================
+             SECTION 3: READING
+        =========================================== -->
+        <div class="section-title">READING</div>
+
+        <div class="reading-text">
+            <h3>Steps for writing a good story</h3>
+            <p>Not everyone is an amazing writer, but we can all write interesting stories if we follow a few simple steps.</p>
+            
+            <p><span class="paragraph-num">1</span> It’s not a good idea to copy other people’s stories, but it can be useful to think about why you liked a story when you think of your own. Was it the plot? The characters? How it made you feel? Or did the ending surprise you? Don’t just use your own experiences to imagine a story. Look at and listen carefully to the things around you, too. Watch people, listen to bits of their conversations and read the news.</p>
+            
+            <p><span class="paragraph-num">2</span> Now you’ve got an idea, make a plan. Some people start noting down a lot of details from the start, but it’s best to write just a few important things such as who, where, when, what and how. Making some simple pictures of the things or people in your story can help you to see it more clearly in your mind. It can often help to begin with the ending of your story and then go back to the start, too.</p>
+            
+            <p><span class="paragraph-num">3</span> Now you can think about smaller pieces of information in your story. What do the places look like? What are the characters like? What connects them all? What happens to them and when? Keep a note of everything so you don’t forget it when writing. It’s not good if the hero has black hair at the start and brown hair at the end!</p>
+            
+            <p><span class="paragraph-num">4</span> The ending of a story might be what people remember, but it’s the start that gets people interested, so this is just as important and often takes just as much time to write. When you write your ending, think about how you want people to feel. For example, should they be terrified and then calm, or calm and then terrified? Remember you don’t have to tell the reader everything. An open ending lets the reader imagine what happened. Not everyone likes this kind of ending, though.</p>
+            
+            <p><span class="paragraph-num">5</span> Always leave time to go back and read your story. Read it to make sure everything is clear, and everything you say is important. Then, read it again and think about the language you have used. Are there better words? Or any errors to correct? And don’t just read your story twice. Come back to it a few days later and read it again.</p>
+        </div>
+
+        <!-- TASK 5A -->
+        <div class="task">
+            <span class="task-label">5A. Read the title of the article. Choose three things that the article includes.</span>
+            <div class="radio-group">
+                <label><input type="checkbox" name="5A" value="1. where to get story ideas from"> 1. where to get story ideas from</label>
+                <label><input type="checkbox" name="5A" value="2. the richest writers in the world"> 2. the richest writers in the world</label>
+                <label><input type="checkbox" name="5A" value="3. popular films at the moment"> 3. popular films at the moment</label>
+                <label><input type="checkbox" name="5A" value="4. how to plan a story"> 4. how to plan a story</label>
+                <label><input type="checkbox" name="5A" value="5. ways to write an ending"> 5. ways to write an ending</label>
+                <label><input type="checkbox" name="5A" value="6. the best poems ever written"> 6. the best poems ever written</label>
+            </div>
+        </div>
+
+        <!-- TASK 5B -->
+        <div class="task">
+            <span class="task-label">5B. Read the article. Match the headings (a-e) with the paragraphs (1-5).</span>
+            <p style="font-size: 0.95em; margin-bottom: 15px; color: var(--primary-text);">
+                a. Checking your work<br>
+                b. Decide how the story begins and finishes<br>
+                c. It's all in the planning<br>
+                d. Adding details<br>
+                e. Getting ideas
+            </p>
+            
+            <div class="sentence">
+                Paragraph 1: 
+                <select name="5B_1">
+                    <option value="">Select...</option>
+                    <option value="a">a</option><option value="b">b</option><option value="c">c</option><option value="d">d</option><option value="e">e</option>
+                </select>
+            </div>
+            <div class="sentence">
+                Paragraph 2: 
+                <select name="5B_2">
+                    <option value="">Select...</option>
+                    <option value="a">a</option><option value="b">b</option><option value="c">c</option><option value="d">d</option><option value="e">e</option>
+                </select>
+            </div>
+            <div class="sentence">
+                Paragraph 3: 
+                <select name="5B_3">
+                    <option value="">Select...</option>
+                    <option value="a">a</option><option value="b">b</option><option value="c">c</option><option value="d">d</option><option value="e">e</option>
+                </select>
+            </div>
+            <div class="sentence">
+                Paragraph 4: 
+                <select name="5B_4">
+                    <option value="">Select...</option>
+                    <option value="a">a</option><option value="b">b</option><option value="c">c</option><option value="d">d</option><option value="e">e</option>
+                </select>
+            </div>
+            <div class="sentence">
+                Paragraph 5: 
+                <select name="5B_5">
+                    <option value="">Select...</option>
+                    <option value="a">a</option><option value="b">b</option><option value="c">c</option><option value="d">d</option><option value="e">e</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- TASK C -->
+        <div class="task">
+            <span class="task-label">C. Read the article again. Are the statements True (T) or False (F)?</span>
+            
+            <div class="sentence radio-group">
+                1. You should use the plots from other people's stories.<br>
+                <label><input type="radio" name="C_1" value="True"> True</label>
+                <label><input type="radio" name="C_1" value="False"> False</label>
+            </div>
+            <div class="sentence radio-group">
+                2. Your story should only come from things you have experienced in your life.<br>
+                <label><input type="radio" name="C_2" value="True"> True</label>
+                <label><input type="radio" name="C_2" value="False"> False</label>
+            </div>
+            <div class="sentence radio-group">
+                3. It's important to begin by writing down as many details as possible.<br>
+                <label><input type="radio" name="C_3" value="True"> True</label>
+                <label><input type="radio" name="C_3" value="False"> False</label>
+            </div>
+            <div class="sentence radio-group">
+                4. You can sometimes imagine a story well when you draw it.<br>
+                <label><input type="radio" name="C_4" value="True"> True</label>
+                <label><input type="radio" name="C_4" value="False"> False</label>
+            </div>
+            <div class="sentence radio-group">
+                5. It can be helpful to start with the story ending, and then plan the story beginning.<br>
+                <label><input type="radio" name="C_5" value="True"> True</label>
+                <label><input type="radio" name="C_5" value="False"> False</label>
+            </div>
+            <div class="sentence radio-group">
+                6. Noting down lots of points helps you to stop describing a character differently during a story.<br>
+                <label><input type="radio" name="C_6" value="True"> True</label>
+                <label><input type="radio" name="C_6" value="False"> False</label>
+            </div>
+            <div class="sentence radio-group">
+                7. It's important to spend more time on the story ending than the beginning.<br>
+                <label><input type="radio" name="C_7" value="True"> True</label>
+                <label><input type="radio" name="C_7" value="False"> False</label>
+            </div>
+            <div class="sentence radio-group">
+                8. Every reader enjoys stories more when the endings are open.<br>
+                <label><input type="radio" name="C_8" value="True"> True</label>
+                <label><input type="radio" name="C_8" value="False"> False</label>
+            </div>
+            <div class="sentence radio-group">
+                9. The only time you should focus on the grammar is when you read it the first time.<br>
+                <label><input type="radio" name="C_9" value="True"> True</label>
+                <label><input type="radio" name="C_9" value="False"> False</label>
+            </div>
+            <div class="sentence radio-group">
+                10. It's not enough to read your story twice when checking it.<br>
+                <label><input type="radio" name="C_10" value="True"> True</label>
+                <label><input type="radio" name="C_10" value="False"> False</label>
+            </div>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <button type="submit" class="submit-btn">Send My Answers</button>
+    </form>
+</div>
+
+</body>
+</html>
